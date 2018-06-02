@@ -4,4 +4,6 @@ html
 		title=	"La Itut"
 	body
 		div#root!=	root
+		script.
+			window.initialState = !{JSON.stringify(state)};
 		script(src='bundle.js')
