@@ -7,8 +7,9 @@ app.use(express.static('static'))
 app.set('view engine', 'pug')
 
 app.get('*', function (req, res) {
-  let html = client.toString(req.url)
-  res.render('index', { root: html })
+  let state = { topic: 'SSR' }
+  let html = client.toString(req.url, state)
+  res.render('index', { root: html, state: state })
 })
 
 app.listen(3000, function () {
